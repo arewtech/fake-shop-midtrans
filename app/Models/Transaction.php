@@ -10,6 +10,7 @@ class Transaction extends Model
     use HasFactory;
 
     public $fillable = [
+        'order_id',
         'user_id',
         'product_id',
         'price',

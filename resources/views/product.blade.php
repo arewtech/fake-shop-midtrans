@@ -18,6 +18,7 @@
                     <form action="{{ route('checkout-process') }}" method="POST">
                         @csrf
                         <input type="hidden" name="id" value="{{ $product['id'] }}">
+                        <input type="hidden" name="order_id">
                         <input type="hidden" name="product_id" value="{{ $product['id'] }}">
                         <input type="hidden" name="price" value="{{ $product['price'] }}">
                         @auth

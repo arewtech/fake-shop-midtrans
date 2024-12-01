@@ -22,7 +22,11 @@ Auth::routes();
 Route::get('/', [HomeController::class, 'index'])->name("home");
 Route::get('/product/{id}', [HomeController::class, 'show'])->name("product");
 
+Route::post('/payment/notification', [CheckoutController::class, 'notification'])->name('payment.notification');
 Route::post('/checkout', [CheckoutController::class, 'process'])->name("checkout-process");
+Route::get('/checkout/{transaction}', [CheckoutController::class, 'checkout'])->name("checkout");
+Route::get('/checkout/success/{transaction}', [CheckoutController::class, 'success'])->name("checkout-success");
+Route::put('/checkout/set-status/{transaction}', [CheckoutController::class, 'setStatus'])->name("checkout-set-status");
 
 Route::get('/transactions', [TransactionController::class, 'index'])->name("transactions");
 

@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
+            $table->string('order_id')->unique();
             $table->integer('user_id');
             $table->integer('product_id');
             $table->integer('price');
-            $table->enum('status', ['pending', 'success', 'failed']);
+            $table->enum('status', allowed: ['pending', 'success', 'failed']);
             $table->string('snap_token')->nullable();
             $table->timestamps();
         });

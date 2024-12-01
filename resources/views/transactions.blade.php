@@ -35,7 +35,7 @@
                                         </td>
                                         <td>{{ $transaction['created_at'] }}</td>
                                         <td>
-                                            @if ($transaction['status'] == 'pending')
+                                            {{-- @if ($transaction['status'] == 'pending')
                                                 <form action="{{ route('checkout-process') }}" method="POST">
                                                     @csrf
                                                     <input type="hidden" name="id" value="{{ $transaction['id'] }}">
@@ -45,6 +45,10 @@
                                                         value="{{ $transaction['product']['price'] }}">
                                                     <button type="submit" class="btn btn-primary">Bayar</button>
                                                 </form>
+                                            @endif --}}
+                                            @if ($transaction->status == 'pending')
+                                                <a href="{{ route('checkout', $transaction->id) }}"
+                                                    class="btn btn-primary">Lanjutkan Pembayaran</a>
                                             @endif
                                         </td>
                                     </tr>

@@ -17,8 +17,6 @@ class TransactionController extends Controller
             $transaction->product = collect(config('products'))->firstWhere('id', $transaction->product_id);
             return $transaction;
         });
-
-
         return view('transactions', compact('transactions'));
     }
 }
